@@ -1,0 +1,79 @@
+{% load my_tags %}
+
+
+<div class="card-body">
+	<div class="w3-center" style="padding-top: 10px;">
+		{% if request.user.details.socials|get_social_link:'github' %}
+		<a href="{{request.user.details.socials|get_social_link:'github'}}" target="_blank" style="text-decoration: none;">
+			<button type="button" class="btn btn-outline-primary btn-floating">
+				<i class="fa fa-github fa-lg"></i>
+			</button>
+		</a>
+		{% else %}
+		<button type="button" class="btn btn-outline-primary btn-floating">
+			<i class="fa fa-github fa-lg"></i>
+		</button>
+		{% endif %}
+
+		{% if request.user.details.socials|get_social_link:'linkedin' %}
+		<a href="{{request.user.details.socials|get_social_link:'linkedin'}}" style="text-decoration: none;" target="_blank">
+			<button type="button" class="btn btn-outline-primary btn-floating">
+			<i class="fa fa-linkedin fa-lg"></i>
+		</button>
+		</a>
+		{% else %}
+		<button type="button" class="btn btn-outline-primary btn-floating">
+			<i class="fa fa-linkedin fa-lg"></i>
+		</button>
+		{% endif %}
+
+		{% if request.user.details.socials|get_social_link:'twitter' %}
+		<a href="{{request.user.details.socials|get_social_link:'twitter'}}" style="text-decoration: none;" target="_blank">
+			<button type="button" class="btn btn-outline-primary btn-floating">
+				<i class="fa fa-twitter fa-lg"></i>
+			</button>
+		</a>
+		{% else %}
+		<button type="button" class="btn btn-outline-primary btn-floating">
+			<i class="fa fa-twitter fa-lg"></i>
+		</button>
+		{% endif %}
+
+		{% if request.user.details.socials|get_social_link:'instagram' %}
+		<a href="{{request.user.details.socials|get_social_link:'instagram'}}" style="text-decoration: none;" target="_blank">
+			<button type="button" class="btn btn-outline-primary btn-floating">
+				<i class="fa fa-instagram fa-lg"></i>
+			</button>
+		</a>
+		{% else %}
+		<button type="button" class="btn btn-outline-primary btn-floating">
+			<i class="fa fa-instagram fa-lg"></i>
+		</button>
+		{% endif %}
+
+		{% if request.user.details.socials|get_social_link:'facebook' %}
+		<a href="{{request.user.details.socials|get_social_link:'facebook'}}" style="text-decoration: none;" target="_blank">
+			<button type="button" class="btn btn-outline-primary btn-floating">
+				<i class="fa fa-facebook-f fa-lg"></i>
+			</button>
+		</a>
+		{% else %}
+		<button type="button" class="btn btn-outline-primary btn-floating">
+			<i class="fa fa-facebook-f fa-lg"></i>
+		</button>
+		{% endif %}
+
+		{% if request.user.details.socials|get_social_link:'reddit' %}
+		<a href="{{request.user.details.socials|get_social_link:'reddit'}}" style="text-decoration: none;" target="_blank">
+			<button type="button" class="btn btn-outline-primary btn-floating">
+				<i class="fa fa-reddit-square"></i>
+			</button>
+		</a>
+		{% else %}
+		<button type="button" class="btn btn-outline-primary btn-floating">
+			<i class="fa fa-reddit"></i>
+		</button>
+		{% endif %}
+	</div>
+
+</div>

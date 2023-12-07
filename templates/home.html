@@ -1,0 +1,381 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load my_tags %}
+
+<head>
+    {% block linkfile %}
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <!-- <script src="https://kit.fontawesome.com/09f47cf394.js" crossorigin="anonymous"></script> -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/sidebar.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile_card_details.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/upload.css' %}" />
+    <script type="text/javascript" src="{% static 'js/upload.js' %}"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+
+
+
+
+    {% endblock %}
+
+
+    {% block extrahead %}
+    <style>
+        html,
+        body,
+        h1,
+        h3,
+        h4,
+        h5 {
+            font-family: "Open Sans", sans-serif
+        }
+		.events, h2, h6 {
+			font-family: "Google Sans", arial, sans-serif;
+		}
+    </style>
+    {% endblock %}
+
+</head>
+
+<body class="w3-theme-l5">
+    {% block content %}
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+            <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large w3-theme-d4">
+                <div class="content">
+                    <h2>BUDRIVE</h2>
+                    <h2>BUDRIVE</h2>
+                </div>
+            </a>
+            <a href="{% url 'mydrive' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="My Drive">
+                <h2>My Drive</h2>
+            </a>
+            <a href="{% url 'starred' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Starred">
+                <h2>Starred</h2>
+            </a>
+            <a href="{% url 'trash' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Trash">
+                <h2>Trash</h2>
+            </a>
+			<a href="{% url 'share' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Shared">
+                <h2>Shared</h2>
+            </a>
+            <a href="{% url 'profilepage' %}" style="text-decoration:none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Profile">
+                <h2>Profile</h2>
+            </a>
+
+            <!-- <div class="w3-dropdown-hover w3-hide-small">
+                <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span
+                        class="w3-badge w3-right w3-small w3-green">3</span></button>
+                <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+                    <a href="#" class="w3-bar-item w3-button">One new friend request</a>
+                    <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
+                    <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
+                </div>
+            </div> -->
+
+
+            {% include 'profile_dropdown.html' %}
+
+
+
+        </div>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+    </div>
+
+
+    <!-- Page Container -->
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+        <!-- The Grid -->
+        <div class="w3-row" style="padding-top: 50px;">
+            <!-- Left Column -->
+            <div class="w3-col m3">
+                <!-- Profile -->
+                {% include 'profile_card.html' %}
+                <br>
+
+                <!-- Recent Tags -->
+				<div class="alert alert-warning" role="alert">
+					<h5 class="alert-heading"><b>Recent Tags</b></h5>
+					<p>
+						{% for tag in 5|get_trending_tags %}
+						<span class="badge badge-primary">{{tag}}</span>
+						{% endfor %}
+					</p>
+				</div>
+
+
+                <!-- Alert Box -->
+                <a class="card1" role="" style="width: 100%; text-decoration: none;">
+					<h3 class="h3_class">Hey Folks!</h3>
+					<p class="small">To access a user's profile details, click on their username.</p>
+					<div class="go-corner" href="#">
+					  <div class="go-arrow"> → </div>
+					</div>
+				</a>
+
+				<br>
+
+                <div class="w3-card w3-round w3-white w3-hide-small">
+                    <!-- Countdown 4-->
+                    <div class="rounded bg-gradient-4 text-white shadow p-5 text-center mb-5">
+                        <p class="mb-0 font-weight-bold text-uppercase" id="date"></p>
+                        <div id="clockc" class="countdown py-4">
+                            <span class="h2 font-weight-bold" id="hour">00</span>
+                            <span class="h2 font-weight-bold" id="min">00</span>
+                            <span class="h2 font-weight-bold" id="sec">00</span>
+                            <span class="h2 font-weight-bold" id="zone"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- End Left Column -->
+            </div>
+
+
+
+
+            <!-- Middle Column -->
+            <div class="w3-col m7">
+
+                <div class="container" style="width: 100%;">
+                    <h2 class="display-4 font-weight-light title"> ACTIVITY <b>FEED </b></h2>
+                </div>
+
+                <div class="w3-row-padding">
+                    <div class="w3-col m12">
+                        <div class="w3-card w3-round w3-white">
+							<form id="post_details" method='post'>
+                                {% csrf_token %}
+								<div class="w3-container w3-padding">
+									<h6><b>What are you doing?...</b></h6>
+									<textarea class="massage_details" name="message" id="massage_details" rows="3" value="" placeholder="Doing Assignment..." required></textarea>
+									<br>
+									<button type="submit" class="post_btn" onclick="return post(event, 'post_details','massage_details')">
+										<span><i class="fa fa-pencil"></i><b> Post</b></span>
+									</button>
+
+								</div>
+
+							</form>
+                        </div>
+                    </div>
+                </div>
+
+
+				{% for post in posts %}
+                <div class="w3-container w3-card w3-white w3-round w3-margin" id="all_posts">
+					<br>
+
+					{% if post.owner.details.profile_picture %}
+						<img class="w3-left w3-circle w3-margin-right" src = "{{post.owner.details.profile_picture.url}}" style="width:60px">
+					{% else %}
+						<img class="w3-left w3-circle w3-margin-right" src = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" style="width:60px">
+					{% endif %}
+                    <span class="w3-right w3-opacity"><i>{{post.created_at|timesince}} ago</i></span>
+                    <h4 class="text-primary"><a href="{% url 'social' %}" style="text-decoration: none;"><b>@{{post.owner.username}} </b></a><img src="{% static "images/bluetick.png" %}" alt="Verified" width="17px"></h4>
+					<small class="user_status"><b>Member of BU</b></small>
+					<br>
+					<hr class="w3-clear">
+
+					<p class="post_text">{{post.text}}</p>
+
+					{% if post.file %}
+					<div class="w3-row-padding" style="margin:0 -16px">
+                        <div class="w3-full">
+                            <img src="{{post.file.file.url}}" style="width:100%" alt="{{post.file.name}}" class="w3-margin-bottom">
+                        </div>
+                    </div>
+					{% endif %}
+
+                    <div>
+						{% for tag in post.tags.all%}
+                        <span class="badge badge-primary">{{tag.name}}</span>
+						{% endfor %}
+                    </div>
+
+                    <br>
+
+					<button type="button" class="like like-btn w3-margin-bottom" id="liked_id_{{forloop.counter}}" onclick="like_post('{{post.uid}}', '{{csrf_token}}')">
+						{% if post|is_liked_by_user:request.user %}
+						<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+						Liked
+						{% else %}
+						<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+						Like
+						{% endif %}
+					</button>
+                    <button type="button" class="comment comment-btn w3-margin-bottom" onclick="comment_section('comment_section_{{forloop.counter}}')">
+						<i class="fa fa-comment icon"></i> 
+						Comment
+					</button>
+                    <hr>
+
+                    <div class="comments">
+                        <div class="container" style="text-align: right;"> <span id="total_likes"><i class="fa fa-thumbs-up total_like"></i> {{post.likes.all.count}}</span>
+							<span class="ml-2"><i class="fa fa-comments total_comments"></i> {{post.comments.all.count}}</span>
+                        </div>
+
+						{% for comment in post.comments.all|dictsort:"created_at" %}
+						<div class="d-flex flex-row mb-2">
+							{% if comment.user.details.profile_picture %}
+								<img class="rounded-image" src = "{{comment.user.details.profile_picture.url}}">
+							{% else %}
+								<img class="rounded-image" src = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+							{% endif %}
+							<div class="d-flex flex-column ml-2"> <span class="name"><b>{{comment.user}} </b><img src="{% static "images/bluetick.png" %}" alt="Verified" width="14px"></span>
+								<small class="left_p"><b>{{comment.comment}}</b></small>
+								<small class="right_p"><i>{{comment.created_at|timesince}} ago</i></small>
+								<!-- <div class="d-flex flex-row align-items-center status">
+									<small>Reply</small>
+								</div> -->
+							</div>
+						</div>
+						{% endfor %}
+
+						<div class="timeline-comment-box" id="comment_section_{{forloop.counter}}" style="display: none;">
+							<form method="post">
+								{% csrf_token %}
+								<div class="input-group">
+								{% if request.user.details.profile_picture %}
+									<img class="comment_img" src="{{request.user.details.profile_picture.url}}">
+								{% else %}
+									<img class="comment_img" src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+								{% endif %}
+								<input type="text" class="form-control rounded-corner" name="comment" placeholder="Write a comment..." required style="margin-left: 10px;">
+								<input type="text" class="form-control rounded-corner" name="comment_post" value="{{post.uid}}" style="margin-left: 10px;" hidden>
+								<span class="input-group-btn p-l-10" style="padding-left: 10px;">
+									<button class="btn btn-primary f-s-12 rounded-corner" type="submit">
+									Comment
+									</button>
+								</span>
+								</div>
+							</form>
+						</div>
+
+                    </div>
+                    <div class="container" style="padding-top: 10px;"></div>
+
+                </div>
+				{% endfor %}
+
+
+
+
+
+                <!-- End Middle Column -->
+            </div>
+
+            <!-- Right Column -->
+            <div class="w3-col m2">
+                <div class="w3-card w3-round w3-white w3-center events">
+                    <div class="w3-container inner">
+						<br>
+                        <p class="event" style="color: rgb(76, 9, 232);"><b>UPCOMING EVENTS:</b></p>
+						<div class="img_fest">
+							<img src="{% static "images/fest.webp" %}" alt="Fest" style="width:100%;">
+						</div>
+						<br>
+                        <p><strong>BU's Sport Fest</strong></p>
+                        <p>April, 2024</p>
+                        <p><a href="https://www.bennett.edu.in/bennett-life/sports/sportikon-2023/" style="text-decoration: none;" target="_blank"><button class="info"><b>More Details</b></button></a></p>
+                    </div>
+                </div>
+                <br>
+
+
+                <br>
+
+
+
+                <!-- <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
+                    <p>ADS</p>
+                </div>
+                <br>
+
+                <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
+                    <p><i class="fa fa-bug w3-xxlarge"></i></p>
+                </div> -->
+
+                <!-- End Right Column -->
+            </div>
+
+            <!-- End Grid -->
+        </div>
+
+        <!-- End Page Container -->
+    </div>
+    <br>
+
+    <!-- Footer -->
+    <!-- <footer class="w3-container w3-theme-d3 w3-padding-16">
+        <h5>Footer</h5>
+    </footer>
+
+    <footer class="w3-container w3-theme-d5">
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Template</a></p>
+    </footer> -->
+
+    {% include 'model.html' %}
+
+	<script>
+		$("#massage_details").on('input', function() {
+			var scroll_height = $("#massage_details").get(0).scrollHeight;
+
+			$("#massage_details").css('height', scroll_height + 'px');
+		});
+	</script>
+
+    {% endblock %}
+
+</body>

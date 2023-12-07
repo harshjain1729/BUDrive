@@ -1,0 +1,117 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  body {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .bottomright {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+
+  }
+
+
+.profile-header {
+    transform: translateY(5rem);
+}
+
+
+
+
+
+  /* logo */
+
+  @import url(https://fonts.googleapis.com/css?family=Cabin+Condensed);
+
+  @import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+
+  .w3-bar .w3-bar-item {
+    width: 178px;
+    height: 59px;
+  }
+
+  .w3-theme-d2 {
+    background-color: #44bc90 !important
+  }
+
+  .w3-theme-d4 {
+    background-color: #fff !important
+  }
+
+  .iiitd {
+    background-color: #44bc90 !important
+  }
+
+  .w3-theme-d4:hover {
+    background-color: #fff !important
+  }
+
+
+  .w3-dropdown-hover:first-child,
+  .w3-dropdown-click:hover {
+    background-color: transparent;
+  }
+
+  .content {
+    position: absolute;
+    /* margin: 100px; */
+    padding: 0;
+    /* padding-left: 450px; */
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .content h2 {
+    color: #06f806;
+    /* font-size: 12em; */
+    position: absolute;
+    width: max-content;
+    /* transform: translate(-50%, -50%); */
+  }
+
+  .content h2:nth-child(1) {
+    /* color: transparent; */
+    -webkit-text-stroke: 2px #0e100e;
+  }
+
+  .content h2:nth-child(2) {
+    color: #fff;
+    animation: animate 4s ease-in-out infinite;
+  }
+
+  @keyframes animate {
+
+    0%,
+    100% {
+      clip-path: polygon(0% 45%,
+          16% 44%,
+          33% 50%,
+          54% 60%,
+          70% 61%,
+          84% 59%,
+          100% 52%,
+          100% 100%,
+          0% 100%);
+    }
+
+    50% {
+      clip-path: polygon(0% 60%,
+          15% 65%,
+          34% 66%,
+          51% 62%,
+          67% 50%,
+          84% 45%,
+          100% 46%,
+          100% 100%,
+          0% 100%);
+    }
+  }

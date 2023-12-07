@@ -1,0 +1,13 @@
+{% autoescape off %}
+Hi {{ username }},
+<br>
+<br>
+Please click the following link to verify your email:
+<br>
+http://{{ domain }}{% url 'verify_email' token %}
+<br>
+<br>
+Best,
+<br>
+Team IIITDRIVE
+{% endautoescape %}

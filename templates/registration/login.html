@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+
+<head>
+    {% block linkfile %}
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    {% endblock %}
+</head>
+
+
+
+
+{% block content %}
+
+	<div id="container1" class="container">
+
+        <div class="row">
+            <div class="col align-items-center flex-col sign-up">
+                <div class="form-wrapper1 align-items-center"></div>
+            </div>
+
+            <div class="col align-items-center flex-col sign-in">
+                <div class="form-wrapper align-items-center">
+                    <form method='post'>
+                        {% csrf_token %}
+
+
+                        <div class="form sign-in">
+
+							{% load widget_tweaks %}
+
+							<div class="form-group input-group">
+							   <i class='bx bxs-user'></i>
+							   {% render_field form.username type="text" class="form-control" id=form.username.id_for_label placeholder="Username" autocapitalize="none" autocomplete="username" %}
+							</div>
+							{{ form.username.errors }}
+
+							<div class="form-group input-group">
+								<i class='bx bxs-lock-alt'></i>
+								{% render_field form.password type="password" class="form-control" id=form.password.id_for_label placeholder="Password" autocomplete="on" %}
+								<i class="fas fa-eye" onclick="show()" id="eye" type="button"></i>
+							</div>
+							{{ form.password.errors }}
+
+                            <button type="submit" style="padding-top: 10px;"> Sign in </button>
+
+                            <p> <b> Forgot password? </b> </p>
+
+                            <p>
+                                <span>
+                                    Don't have an account?
+                                </span>
+                                <a href="{% url 'signup' %}" style="text-decoration: none;"><b onclick="toggle()" class="pointer"> Sign up here </b></a>
+                            </p>
+
+							{% if messages %}
+							<p>
+								<span>
+									<b>
+										<ul class="messages">
+											{% for message in messages %}
+												<li class="{{ message.tags }}">{{ message }}</li>
+											{% endfor %}
+										</ul>
+									</b>
+								</span>
+							</p>
+							{% endif %}
+
+
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="form-wrapper"></div>
+
+            </div>
+
+        </div>
+
+        <div class="row content-row">
+            <div class="col align-items-center flex-col">
+                <div class="text sign-in">
+                    <h2> Welcome </h2>
+                </div>
+
+                <div class="img sign-in"></div>
+            </div>
+
+            <div class="col align-items-center flex-col">
+                <div class="img sign-up"></div>
+                <div class="text sign-up">
+                    <h2> Join with us </h2>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+
+	{% if alert_message %}
+	<script>
+		alert("{{alert_message}}");
+	</script>
+	{% endif %}
+
+{% endblock %}
