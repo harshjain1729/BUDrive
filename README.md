@@ -23,6 +23,8 @@ python manage.py runserver
 
 [Manu Chaitanya](https://github.com/manuchaitanya) (e21cseu0893@bennett.edu.in)
 
+[Aryan Malik] (e21cseu0882@bennett.edu.in)
+
 ## Purpose:
 
 Course Project at [Bennett University]
