@@ -1,0 +1,154 @@
+
+{% load static %}
+
+<button class="c-button c-button--gooey bottomright icon animate__animated animate__bounceInDown animate__slower" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="fa fa-pencil icon" aria-hidden="true" style="font-size: 25px;"></i><b> Post</b>
+    <div class="c-button__blobs">
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
+</button>
+<svg style="display: block; height: 0; width: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur result="blur" stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+        <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
+        <feBlend in2="goo" in="SourceGraphic"></feBlend>
+      </filter>
+    </defs>
+</svg>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">What's on your mind?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Model body -->
+            <div class="modal-body" id="form">
+
+                <div class="row">
+                    <div class="container">
+
+                        <div class="p-5 bg-white shadow" style="border: 2px solid black; border-radius: 10px;">
+                            <img src="{% static "images/post.png" %}" alt="" width="150"
+                                class="d-block mx-auto mb-4 rounded-pill">
+
+
+                            <div class="card gedf-card">
+                                <div class="card-header">
+                                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts"
+                                                role="tab" aria-controls="posts" aria-selected="true">
+                                                Create Post</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                                <div class="card-body">
+
+									<form action="" method="post" enctype="multipart/form-data" id="form_id">
+										{% csrf_token %}
+
+										<div class="tab-content" id="myTabContent">
+											<div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+												<div class="form-group">
+													<label class="sr-only" for="message">post</label>
+													<textarea class="form-control" name="message" id="message" rows="3"
+														placeholder="Write something here..."></textarea>
+												</div>
+
+												<div class="form-group">
+													<div class="table-responsive">
+														<table class="table table-bordered border-dark" id="emptbl">
+															<tr>
+																<td id="col0"><input type="file" class="form-control" name="img_file" value="" accept=".png, .jpg, .jpeg" onchange="validateSize(this)"></td>
+															</tr>
+														</table>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<div class="card">
+														<select class="hashtag" name="hashtag" id="hashtag" placeholder="Choose a Hashtag" multiple>
+															<option value="BUD">BUD</option>
+															<option value="Foobar">Foobar</option>
+															<option value="TechFest">TechFest</option>
+															<option value="Neon Night">Neon Night</option>
+															<option value="Odyssey">Odyssey</option>
+															<option value="IPPL">IPPL</option>
+															<option value="R&D">R&D</option>
+															<option value="Boys Hostel">Boys Hostel</option>
+															<option value="Girls Hostel">Girls Hostel</option>
+															<option value="Sports Block">Sports Block</option>
+															<option value="Hackathon">Hackathon</option>
+															<option value="Mid Sem">Mid Sem</option>
+															<option value="End Sem">End Sem</option>
+															<option value="BUD Mess">BUD Mess</option>
+															<option value="Convocation">Convocation</option>
+															<option value="Library">Library</option>
+															<option value="Canteen">Canteen</option>
+															<option value="Academic Building">Academic Building</option>
+
+														</select>
+													</div>
+
+													<script>
+
+														$(document).ready(function() {
+															if (document.getElementById('hashtag') != null) {
+																var multipleCancelButton = new Choices('#hashtag', {
+																	removeItemButton: true,
+																	maxItemCount: 5,
+																	searchResultLimit: 5,
+																	shouldSort: true,
+																	removeItemButton: true,
+																	duplicateItemsAllowed: false,
+																	searchFields: ['label', 'value'],
+																	noResultsText: 'No results found'
+																});
+															}
+
+														});
+													</script>
+												</div>
+
+											</div>
+
+										</div>
+
+									</form>
+
+
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Model body end -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="clears(event);">Clear</button>
+                <button type="submit" class="btn btn-primary" onclick="post_method('form_id')">Post</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+
+<head>
+    {% block linkfile %}
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    {% endblock %}
+</head>
+
+
+
+
+{% block content %}
+
+	<div id="container1" class="container">
+
+        <div class="row">
+            <div class="col align-items-center flex-col sign-up">
+                <div class="form-wrapper1 align-items-center">
+                    <form method='post' id="form_data">
+                        {% csrf_token %}
+                        <div class="form sign-up">
+
+							{% load widget_tweaks %}
+
+							<div class="form-group input-group">
+							   <i class='bx bxs-user'></i>
+							   {% render_field form.username type="text" class="form-control" id=form.username.id_for_label placeholder="Username" autocapitalize="none" %}
+							</div>
+							{{ form.username.errors }}
+
+							<div class="form-group input-group">
+								<i class='bx bx-mail-send'></i>
+								{% render_field form.email type="email" class="form-control" id=form.email.id_for_label placeholder="Email Address" autocomplete="on" %}
+							</div>
+							<p><span>{{ form.email.help_text }}</span></p>
+							{{ form.email.errors }}
+
+							<div class="form-group input-group">
+								<i class='bx bxs-lock-alt'></i>
+								{% render_field form.password1 type="password" class="form-control" id=form.password1.id_for_label placeholder="Password" autocomplete="new-password" %}
+							</div>
+							{{ form.password1.errors }}
+
+							<div class="form-group input-group">
+								<i class='bx bxs-lock-alt'></i>
+								{% render_field form.password2 type="password" class="form-control" id=form.password2.id_for_label placeholder="Confirm Password" autocomplete="new-password" %}
+							</div>
+							{{ form.password2.errors }}
+
+                            <button type="submit" style="margin-top: 10px;" id="sign_up_btn"> Sign up </button>
+
+                            <p>
+                                <span> Already have an account? </span>
+                                <a href="{% url 'login' %}" style="text-decoration: none;"><b onclick="toggle()" class="pointer"> Sign in here </b></a>
+                            </p>
+
+							<p>
+								<span>
+									<b> {{ form.non_field_errors }} </b>
+								</span>
+							</p>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <div class="col align-items-center flex-col sign-in">
+                <div class="form-wrapper align-items-center"></div>
+                <div class="form-wrapper"></div>
+            </div>
+
+        </div>
+
+        <div class="row content-row">
+            <div class="col align-items-center flex-col">
+                <div class="text sign-in">
+                    <h2> Welcome </h2>
+                </div>
+
+                <div class="img sign-in"></div>
+            </div>
+
+            <div class="col align-items-center flex-col">
+                <div class="img sign-up"></div>
+                <div class="text sign-up">
+                    <h2> Join with us </h2>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/signup.js' %}"></script>
+
+{% endblock %}
+
+

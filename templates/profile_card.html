@@ -1,0 +1,85 @@
+{% load static %}
+
+<div class="w3-card w3-round w3-white" style="border-radius: 10px;">
+    <div class="w3-container">
+
+        <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 order-lg-2">
+                    <div class="card-profile-image">
+						{% if request.user.details.profile_picture %}
+							<img class="rounded-circle" src = "{{request.user.details.profile_picture.url}}">
+						{% else %}
+							<img class="rounded-circle" src = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+						{% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-header text-center">
+            <div class="d-flex justify-content-between">
+                <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
+                <a href="#" class="btn btn-sm btn-default float-right message">Message</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card-body pt-0 pt-md-4">
+        <div class="row">
+            <div class="col">
+                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                    <div>
+                        <span class="heading">{{request.user.likes.count}}</span>
+                        <span class="description">Likes</span>
+                    </div>
+                    <div>
+                        <span class="heading">{{request.user.posts.count}}</span>
+                        <span class="description">Posts</span>
+                    </div>
+                    <div>
+                        <span class="heading">{{request.user.comments.count}}</span>
+                        <span class="description">Comments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-center" style="padding-top: 5px;">
+            <a href="{% url 'social' %}" style="text-decoration: none;">
+				<button class="edit_profile"> Social Profile</button>
+			</a>
+        </div>
+
+        <div class="text-center" style="padding-top: 10px;">
+            <div class="h5 font-weight-300">
+                <b>{{request.user.username}} </b><img src="{% static "images/bluetick.png" %}" alt="Verified" width="17px">
+            </div>
+			<span class="font-weight-light">{{request.user.email}}</span>
+            <img src="{% static "images/iiitd4.png" %}" class="center_img" alt="IIITD" width="300px">
+
+            <hr class="my-4">
+
+            {% if request.user.details.about_me %}
+			<p>{{request.user.details.about_me}}</p>
+            <button class="read-more" id="more_btn">
+				<span class="circle" aria-hidden="true">
+					<span class="icon arrow"></span>
+                </span>
+                <span class="button-text" id="content">Read More</span>
+            </button>
+
+			{% endif %}
+
+
+        </div>
+    </div>
+
+    <div class="w3-center" style="padding-top: 10px;">
+        {% include 'social_profile_links.html' %}
+    </div>
+
+    <div class="w3-center" style="padding-top: 20px;"></div>
+
+</div>

@@ -1,0 +1,17 @@
+
+<div class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white">
+
+    <div class="w3-dropdown-hover w3-hide-small">
+		{% if request.user.details.profile_picture %}
+			<img class="w3-circle" style="height:40px;width:42px" alt="Avatar" src = "{{request.user.details.profile_picture.url}}">
+		{% else %}
+			<img class="w3-circle" style="height:40px;width:42px" alt="Avatar" src = "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
+		{% endif %}
+
+        <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+            <a href="{% url 'profilepage' %}" style="text-decoration:none" class="w3-bar-item w3-button dropdown"><b>Profile</b></a>
+            <a href="{% url 'logout' %}" style="text-decoration:none" class="w3-bar-item w3-button dropdown"
+                onclick="logout(event)"><b>Logout</b></a>
+        </div>
+    </div>
+</div>

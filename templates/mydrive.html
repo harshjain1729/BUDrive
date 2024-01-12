@@ -1,0 +1,396 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<head>
+    {% block linkfile %}
+    <title>My Drive</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <!-- <script src="https://kit.fontawesome.com/09f47cf394.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="{% static 'js/sidebar.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mydrive.css' %}" />
+    <script type="text/javascript" src="{% static 'js/mydrive.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile_card_details.css' %}" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    {% endblock %}
+
+
+    {% block extrahead %}
+    <style>
+        html,
+        body,
+        h1,
+        h3,
+        h4,
+        h5 {
+            font-family: "Open Sans", sans-serif
+        }
+		h2 {
+			font-family: "Google Sans", arial, sans-serif;
+		}
+    </style>
+    {% endblock %}
+
+</head>
+
+<body class="w3-theme-l5">
+    {% block content %}
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+            <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large w3-theme-d4 iiitd">
+                <div class="content">
+                    <h2>BUDRIVE</h2>
+                    <h2>BUDRIVE</h2>
+                </div>
+            </a>
+            <a href="{% url 'mydrive' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-theme-d4" title="My Drive">
+                <h2 style="color: black;">My Drive</h2>
+            </a>
+            <a href="{% url 'starred' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Starred">
+                <h2>Starred</h2>
+            </a>
+            <a href="{% url 'trash' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Trash">
+                <h2>Trash</h2>
+            </a>
+			<a href="{% url 'share' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Shared">
+                <h2>Shared</h2>
+            </a>
+            <a href="{% url 'profilepage' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Profile">
+                <h2>Profile</h2>
+            </a>
+
+            {% include 'profile_dropdown.html' %}
+
+        </div>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+    </div>
+
+
+    <!-- Page Container -->
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+        <!-- The Grid -->
+        <div class="w3-row" style="padding-top: 50px;">
+            <!-- Left Column -->
+            <div class="w3-col m3">
+                <!-- Profile -->
+
+                {% include 'profile_card.html' %}
+
+                <br>
+
+                <button class="c-button c-button--gooey bottomright icon animate__animated animate__bounceInDown animate__slower" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="fa fa-cloud-upload icon" aria-hidden="true" style="font-size: 30px;"></i><b> Upload</b>
+                    <div class="c-button__blobs">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    </div>
+                </button>
+                <svg style="display: block; height: 0; width: 0;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <filter id="goo">
+                        <feGaussianBlur result="blur" stdDeviation="10" in="SourceGraphic"></feGaussianBlur>
+                        <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
+                        <feBlend in2="goo" in="SourceGraphic"></feBlend>
+                      </filter>
+                    </defs>
+                </svg>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+						<form method="post" action="" enctype="multipart/form-data" id="upload_data">
+							{% csrf_token %}
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="staticBackdropLabel">Upload File Here!</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+
+								<!-- Model body -->
+								<div class="modal-body">
+
+
+									<div class="row">
+										<div class="container">
+
+											<div class="p-5 bg-white shadow"
+												style="border: 2px solid black; border-radius: 10px;">
+												<img src="{% static "images/upload2.jpg" %}" alt="" width="200"
+													class="d-block mx-auto mb-4 rounded-pill">
+
+												<!-- Default bootstrap file upload-->
+												<!--
+												<h6 class="text-center mb-4 text-muted">
+													You can use default Bootstrap file upload
+												</h6> -->
+
+
+
+
+												<div class="card gedf-card">
+													<div class="card-header">
+														<ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+															<li class="nav-item">
+																<a class="nav-link active" id="posts-tab" data-toggle="tab"
+																	href="#posts" role="tab" aria-controls="posts"
+																	aria-selected="true">
+																	Browse file</a>
+															</li>
+
+														</ul>
+													</div>
+
+
+													<div class="card-body">
+														<div class="table-responsive">
+															<table class="table table-bordered border-dark" id="emptbl">
+																<tr>
+																	<td id="col0"><input type="file" name="document" class="form-control"
+																			value="" placeholder=""
+																			onchange="validateSize(this)"></td>
+																</tr>
+
+															</table>
+														</div>
+
+													</div>
+												</div>
+
+												<div style="padding-top: 10px;">
+													<button type="button" class="btn btn-primary"
+														onclick="addRows('emptbl', 'col')">Add Row</button>
+													<button type="button" class="btn btn-default"
+														onclick="deleteRows('emptbl')">Delete Row</button>
+												</div>
+											</div>
+
+
+
+										</div>
+									</div>
+
+								</div>
+
+								<!-- Model body end -->
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+										onclick="clears(event);">Clear</button>
+									<button type="submit" class="btn btn-primary" onclick="upload_files('upload_data')">Upload</button>
+								</div>
+
+							</div>
+
+						</form>
+
+                    </div>
+                </div>
+
+
+
+
+                <!-- Accordion -->
+
+                <br>
+
+                <!-- Interests -->
+                <div class="w3-card w3-round w3-white w3-hide-small" style="border-radius: 10px;">
+                    <div class="w3-container" style="padding-top: 5px;">
+                        <h4>Usage</h4>
+						<input type="text" id="net_storage" value="{{storage_used}}" hidden>
+						<p id="p_bar"></p>
+                        <p><b id="used_storage">0</b><b> MB</b> out of <b>500 MB</b> (<b id="percentage">0</b>%) (<a href="#" class="upgrade">Upgrade</a>)</p>
+                    </div>
+
+					<script>
+						let storage = document.getElementById('net_storage').value;
+						let stor = ~~(storage/1024/1024);
+
+						// create progress bar
+						var g = document.createElement("progress");
+						g.setAttribute("value", stor);
+						g.setAttribute("max", "100");
+						document.getElementById("p_bar").appendChild(g);
+
+						let num = storage/1024/1024;
+						document.getElementById('used_storage').innerHTML = Math.round(num*10)/10;
+
+						let percent = (stor*100)/500;
+						let result = Math.round(percent*10)/10;
+						document.getElementById('percentage').innerHTML = result;
+
+					</script>
+
+                </div>
+                <br>
+
+                <!-- Alert Box -->
+
+
+                <!-- End Left Column -->
+            </div>
+
+            <!-- Middle Column -->
+            <div class="w3-col m7">
+
+                <div class="container" style="width: 100%;">
+                    <h2 class="display-4 font-weight-light title"> ALL UPLOADED <b>FILES </b></h2>
+                </div>
+
+
+                <div class="container">
+					<div class="alert alert-info" role="alert">
+						<h4 class="alert-heading"><b>Note:</b></h4>
+						<p>There is no preview feature yet, but you can download a file.</p>
+						<hr>
+						<p class="mb-0">While sharing any file, be sure to provide the correct username of the recipient..</p>
+					</div>
+
+                </div>
+
+				{% for f in files %}
+				{% empty %}
+				<div class="container">
+					<img src="{% static "images/nothing.gif" %}" alt="Nothing to show" style="margin-left: 18%;">
+                </div>
+				{% endfor %}
+
+                <!-- Upload files -->
+
+                <div class="container" id="all_upload_files">
+					{% for file in files %}
+                    <div class="gallery">
+                        <div class="card cards">
+							<div class="inline">
+							{% if file.is_starred %}
+								<span class="fa fa-star" style="text-align: right; font-size: 1.5em;" title="Star" id="checked_{{forloop.counter}}" onclick="add_to_favourite('checked_{{forloop.counter}}', '{{file.file.uid}}', '{{csrf_token}}')"></span>
+								<script>
+									document.getElementById('checked_{{forloop.counter}}').style.color = "orange";
+								</script>
+							{% else %}
+								<span class="fa fa-star" style="text-align: right; font-size: 1.5em;" title="Star" id="checked_{{forloop.counter}}" onclick="add_to_favourite('checked_{{forloop.counter}}', '{{file.file.uid}}', '{{csrf_token}}')"></span>
+							{% endif %}
+								<span class="fa fa-trash" style="text-align: right; font-size: 1.5em;" title="Delete" id="delete_{{forloop.counter}}" onclick="delete_file(event, 'delete_{{forloop.counter}}', '{{file.file.uid}}', '{{csrf_token}}')"></span>
+							</div>
+
+							<div class="card-image">
+                                {% include 'file_type.html' %}
+                                <div class="desc"><b>{{file.file.name}}.{{file.file.type}}</b></div>
+                            </div>
+                            <div class="d_file" id="before_{{forloop.counter}}">
+                                <a href="" style="text-decoration: none;" class="download"
+                                    id="download_{{forloop.counter}}" download="{{file.file.name}}.{{file.file.type}}" title="Download"><i class="fa" onclick="download('download_{{forloop.counter}}');"></i></a>
+                                <a role="" style="text-decoration: none;" class="rename" onclick="rename('after_{{forloop.counter}}', 'before_{{forloop.counter}}', 'rename_{{forloop.counter}}',);">
+                                    <i class="fa" title="Rename"></i></a>
+								<a role="" style="text-decoration: none;" class="share" onclick="share('after_{{forloop.counter}}', 'before_{{forloop.counter}}', 'share_{{forloop.counter}}');">
+									<i class="fa" title="Share"></i></a>
+                            </div>
+
+                            <div class="d_file" id="after_{{forloop.counter}}" style="display: none;">
+                                <a role="" style="text-decoration: none;" class="submit" onclick="submitNewFileName(event, 'newfilename_submit_{{forloop.counter}}', 'after_{{forloop.counter}}', 'before_{{forloop.counter}}', 'rename_{{forloop.counter}}'); submitNewOwnerName(event, 'newownername_submit_{{forloop.counter}}', 'after_{{forloop.counter}}', 'before_{{forloop.counter}}', 'share_{{forloop.counter}}')"
+                                    id="submit" title="Submit"><i class="fa"></i></a>
+                                <a role="" style="text-decoration: none;" class="cancel" onclick="before_button('after_{{forloop.counter}}', 'before_{{forloop.counter}}', 'rename_{{forloop.counter}}'); before_button1('after_{{forloop.counter}}', 'before_{{forloop.counter}}', 'share_{{forloop.counter}}')">
+                                    <i class="fa" title="Cancel"></i></a>
+                            </div>
+
+                            <form id="newfilename_submit_{{forloop.counter}}" method='post'>
+                                {% csrf_token %}
+                                <div style="padding-top: 10px; display: none;" id="rename_{{forloop.counter}}">
+                                    <input type="text" class="form-control" name="rename" value="{{file.file.name}}">
+									<input type="text" class="form-control" name="rename_id" value="{{file.file.uid}}" hidden>
+                                </div>
+                            </form>
+
+							<form id="newownername_submit_{{forloop.counter}}" method='post'>
+                                {% csrf_token %}
+								<div style="padding-top: 10px; display: none;" id="share_{{forloop.counter}}">
+                                    <input type="text" class="form-control" name="share" value="" placeholder="User Name">
+									<input type="text" class="form-control" name="share_id" value="{{file.file.uid}}" hidden>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+					{% endfor %}
+            	</div>
+
+
+
+
+
+            <!-- End Middle Column -->
+        </div>
+
+        <!-- Right Column -->
+
+        <!-- Right Column -->
+        <!-- <div class="w3-col m2">
+                <div class="w3-card w3-round w3-white w3-center">
+                    <div class="w3-container">
+                        <h4>Usage</h4>
+                        <progress value="40" max="100"></progress>
+                        <p>40.5 MB out of 500 MB (40%) (<a href="#" class="upgrade">Upgrade</a>)</p>
+                    </div>
+                </div>
+                <br>
+
+
+                <br>
+
+
+            </div> -->
+
+
+        <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+    </div>
+    <br>
+
+    {% endblock %}
+
+</body>

@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+    {% block linkfile %}
+    <title>Trash</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <!-- <script src="https://kit.fontawesome.com/09f47cf394.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <script type="text/javascript" src="{% static 'js/sidebar.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/trash.css' %}" />
+    <script type="text/javascript" src="{% static 'js/trash.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile_card_details.css' %}" />
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+
+
+
+    {% endblock %}
+
+
+    {% block extrahead %}
+    <style>
+        html,
+        body,
+        h1,
+        h3,
+        h4,
+        h5 {
+            font-family: "Open Sans", sans-serif
+        }
+		h2 {
+			font-family: "Google Sans", arial, sans-serif;
+		}
+    </style>
+    {% endblock %}
+
+</head>
+
+<body class="w3-theme-l5">
+    {% block content %}
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+            <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-large w3-theme-d4 iiitd">
+                <div class="content">
+                    <h2>BUDRIVE</h2>
+                    <h2>BUDRIVE</h2>
+                </div>
+            </a>
+            <a href="{% url 'mydrive' %}" style="text-decoration:none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+                title="My Drive"><h2>My Drive</h2></a>
+            <a href="{% url 'starred' %}" style="text-decoration:none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Starred">
+                <h2>Starred</h2></a>
+            <a href="{% url 'trash' %}" style="text-decoration:none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-theme-d4" title="Trash">
+                <h2 style="color: black;">Trash</h2>
+            </a>
+			<a href="{% url 'share' %}" style="text-decoration:none"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Shared">
+                <h2>Shared</h2>
+            </a>
+            <a href="{% url 'profilepage' %}" style="text-decoration:none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Profile">
+                <h2>Profile</h2></a>
+
+            {% include 'profile_dropdown.html' %}
+
+        </div>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+    </div>
+
+
+    <!-- Page Container -->
+    <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+        <!-- The Grid -->
+        <div class="w3-row" style="padding-top: 50px;">
+            <!-- Left Column -->
+            <div class="w3-col m3">
+                <!-- Profile -->
+
+                {% include 'profile_card.html' %}
+
+                <br>
+
+
+
+
+                <!-- Accordion -->
+
+
+                <!-- Alert Box -->
+
+
+                <!-- End Left Column -->
+            </div>
+
+            <!-- Middle Column -->
+            <div class="w3-col m7">
+
+                <div class="container" style="width: 100%;">
+                    <h2 class="display-4 font-weight-light title"> RECYLCE <b>BIN </b></h2>
+                </div>
+
+                <div class="py-5">
+                    <div class="row">
+
+                        <div class="col-lg-6 mb-5">
+                            <!-- Collapse Panel 1--><a data-toggle="collapse" href="#collapseExample1" role="button"
+                                aria-expanded="true" aria-controls="collapseExample1"
+                                class="btn btn-primary btn-block py-2 shadow-sm with-chevron">
+                                <p class="d-flex align-items-center justify-content-between mb-0 px-3 py-2"><strong
+                                        class="text-uppercase">Note</strong><i class="fa fa-angle-down"></i></p>
+                            </a>
+                            <div id="collapseExample1" class="collapse shadow-sm show">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="font-italic mb-0 text-muted">The file will stay in your trash for 7 days before being automatically deleted.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mb-5">
+                            <!-- Collapse Panel 1--><a data-toggle="collapse" href="#collapseExample2" role="button"
+                                aria-expanded="true" aria-controls="collapseExample2"
+                                class="btn btn-success btn-block py-2 shadow-sm with-chevron">    <!-- danger, warning -->
+                                <p class="d-flex align-items-center justify-content-between mb-0 px-3 py-2"><strong
+                                        class="text-uppercase">Did you know?</strong><i class="fa fa-angle-down"></i></p>
+                            </a>
+                            <div id="collapseExample2" class="collapse shadow-sm show">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="font-italic mb-0 text-muted">To remove a file from your Drive, you can put it in your trash.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+					{% for f in files %}
+					{% empty %}
+					<div class="container">
+						<img src="{% static "images/nothing.gif" %}" alt="Nothing to show" style="margin-left: 18%;">
+					</div>
+					{% endfor %}
+
+
+                    <div class="container" id="all_deleted_files">
+                        {% for file in files %}
+						<div class="gallery">
+                            <div class="card cards">
+                                <div class="card-image">
+                                    {% include 'file_type.html' %}
+                                    <div class="desc"><b>{{file.file.name}}.{{file.file.type}}</b></div>
+                                </div>
+                                <div class="d_file">
+                                    <a role="" style="text-decoration: none;" class="remove" id="remove_{{forloop.counter}}" onclick="delete_file(event, '{{file.file.uid}}', '{{csrf_token}}')" title="Remove">
+										<i class="fa"></i></a>
+                                    <a role="" style="text-decoration: none;" class="restore" id="restore_{{forloop.counter}}" onclick="restore_file(event, '{{file.file.uid}}', '{{csrf_token}}')" title="Restore">
+                                        <i class="fa" title="Restore"></i></a>
+                                </div>
+                            </div>
+                        </div>
+						{% endfor %}
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+                <!-- End Middle Column -->
+            </div>
+
+            <!-- Right Column -->
+
+
+            <!-- End Grid -->
+        </div>
+
+        <!-- End Page Container -->
+    </div>
+    <br>
+
+    {% endblock %}
+
+</body>

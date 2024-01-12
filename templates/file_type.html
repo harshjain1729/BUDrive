@@ -1,0 +1,20 @@
+
+{% if file.file.type == "pdf" %}
+<i class="fa fa-file-pdf-o" style="font-size:100px;color:rgb(216, 18, 18)"></i>
+{% elif file.file.type == "java" or file.file.type == "py" or file.file.type == "c" or file.file.type == "cpp" or file.file.type == "pl" or file.file.type == "js" or file.file.type == "html" or file.file.type == "css" %}
+<i class="fa fa-file-code-o" aria-hidden="true" style="font-size:100px;color:rgb(19, 147, 66)"></i>
+{% elif file.file.type == "docx" %}
+<i class="fa fa-file-word-o" aria-hidden="true" style="font-size:100px;color:rgb(64, 17, 235)"></i>
+{% elif file.file.type == "pptx" %}
+<i class="fa fa-file-powerpoint-o" aria-hidden="true" style="font-size:100px;color:rgb(229, 153, 13)"></i>
+{% elif file.file.type == "jpg" or file.file.type == "jpeg" or file.file.type == "png" %}
+<i class="fa fa-file-image-o" aria-hidden="true" style="font-size:100px;color:rgb(205, 24, 145)"></i>
+{% elif file.file.type == "zip" %}
+<i class="fa fa-file-archive-o" aria-hidden="true" style="font-size:100px;color:rgb(72, 38, 184)"></i>
+{% elif file.file.type == "mp3" %}
+<i class="fa fa-file-audio-o" aria-hidden="true" style="font-size:100px;color:rgb(23, 147, 225)"></i>
+{% elif file.file.type == "mp4" or file.file.type == "mkv" or file.file.type == "mov" or file.file.type == "wvm" %}
+<i class="fa fa-file-video-o" aria-hidden="true" style="font-size:100px;color:rgb(31, 176, 179)"></i>
+{% else %}
+<i class="fa fa-file" aria-hidden="true" style="font-size:100px;color:rgb(10, 1, 1)"></i>
+{% endif %}
