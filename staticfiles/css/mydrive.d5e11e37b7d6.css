@@ -1,0 +1,671 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.bottomright {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+
+}
+
+
+
+
+/* logo */
+
+@import url(https://fonts.googleapis.com/css?family=Cabin+Condensed);
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+
+/* body {
+      display: flex;
+      background: #000;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+  } */
+
+.w3-bar .w3-bar-item {
+  width: 178px;
+  height: 59px;
+}
+
+.w3-theme-d2 {
+  background-color: #44bc90 !important
+}
+
+.w3-theme-d4 {
+  background-color: #fff !important
+}
+
+.iiitd {
+  background-color: #44bc90 !important
+}
+
+.w3-theme-d4:hover {
+  background-color: #fff !important
+}
+
+
+.w3-dropdown-hover:first-child,
+.w3-dropdown-click:hover {
+  background-color: transparent;
+}
+
+@media (min-width: 601px) {
+  .w3-col.m7 {
+    width: 66.33333% !important;
+  }
+}
+
+.w3-col {
+  padding-left: 30px !important;
+}
+
+.content {
+  position: absolute;
+  /* margin: 100px; */
+  padding: 0;
+  /* padding-left: 450px; */
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.content h2 {
+  color: #06f806;
+  /* font-size: 12em; */
+  position: absolute;
+  width: max-content;
+  /* transform: translate(-50%, -50%); */
+}
+
+.content h2:nth-child(1) {
+  /* color: transparent; */
+  -webkit-text-stroke: 2px #0e100e;
+}
+
+.content h2:nth-child(2) {
+  color: #fff;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+
+  0%,
+  100% {
+    clip-path: polygon(0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%);
+  }
+
+  50% {
+    clip-path: polygon(0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%);
+  }
+}
+
+
+
+/* model */
+
+.p-5 {
+  padding: 1rem !important;
+}
+
+#message-box {
+  resize: none;
+  display: block;
+  width: 100%;
+  min-height: 60px;
+  padding: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.textarea {
+  border: 1px solid rgb(26, 2, 2);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  color: blue;
+  padding: 1px 6px;
+}
+
+
+
+
+/* facebook */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+  background-color: #eee;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300
+}
+
+.card {
+  border: none
+}
+
+.ellipsis {
+  color: #a09c9c
+}
+
+hr {
+  color: #a09c9c;
+  margin-top: 4px;
+  margin-bottom: 8px
+}
+
+.muted-color {
+  color: #a09c9c;
+  font-size: 13px
+}
+
+.ellipsis i {
+  margin-top: 3px;
+  cursor: pointer
+}
+
+.icons i {
+  font-size: 25px
+}
+
+.icons .fa-heart {
+  color: red
+}
+
+.icons .fa-smile-o {
+  color: yellow;
+  font-size: 29px
+}
+
+.rounded-image {
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px
+}
+
+.name {
+  font-weight: 600
+}
+
+.comment-text {
+  font-size: 12px
+}
+
+.status small {
+  margin-right: 10px;
+  color: blue
+}
+
+.form-control {
+  border-radius: 26px
+}
+
+.comment-input {
+  position: relative
+}
+
+.fonts {
+  position: absolute;
+  right: 13px;
+  top: 8px;
+  color: #a09c9c
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #8bbafe;
+  outline: 0;
+  box-shadow: none
+}
+
+.form-control:invalid:focus {
+  border-color: red;
+  border: 3px solid red;
+}
+
+.form-control:valid:focus {
+  border-color: green;
+  border: 3px solid green;
+}
+
+
+/* Rotate Icon */
+
+.icon {
+  transition: all 0.5s;
+}
+
+.icon .fa-cloud-upload {
+  transition: all 1s;
+}
+
+.icon:hover .fa-cloud-upload {
+  transform: rotate(360deg)
+}
+
+
+/* Upload table */
+
+table,
+td {
+  border-width: 2px 1px !important;
+}
+
+/* Usage Bar */
+progress {
+  width: 100%;
+}
+
+/* galary */
+
+
+div.gallery {
+  margin: 11px;
+  /* border: 1px solid #ccc; */
+  float: left;
+  /* width: 175px; */
+  text-align: center;
+  -webkit-transition: opacity 1s, -webkit-transform .5s;
+  transition: opacity 1s, -webkit-transform .5s;
+  transition: transform .5s, opacity 1s;
+  transition: transform .5s, opacity 1s, -webkit-transform .5s;
+  /* width: 100% */
+}
+
+div.gallery:hover,
+div.gallery:focus {
+  /* border: 2px solid black; */
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px)
+}
+
+/*
+div.gallery:hover {
+  border: 1px solid #777;
+  border: 2px solid black;
+  border-radius: 6px;
+
+} */
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+
+/* card */
+
+.cards {
+  width: 190px;
+  /* height: 274px; */
+  background: white;
+  padding: .4em;
+  border-radius: 6px !important;
+  border: 2px solid black !important;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px 6px 0 0;
+  text-align: center;
+}
+
+.card-image:hover {
+  transform: scale(0.98);
+}
+
+.category {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: rgb(63, 121, 230);
+  padding: 10px 7px 0;
+}
+
+
+/* downolad button */
+
+.d_file {
+  flex: 0 0 auto;
+  /* width: 10px; */
+  /* height: 130px; */
+  text-align: center;
+}
+
+@media screen and (max-height: 255px) {
+  .d_file {
+    margin: 25px auto
+  }
+}
+
+.download {
+  display: inline-block;
+  padding: 10px 10px 10px;
+  border: 0;
+  border-radius: 3px;
+  background: #1df3bd;
+  text-decoration: none;
+  transition: all 1.2s ease-in-out;
+}
+
+.download i::after {
+  content: "\f019";
+  font-size: 40px;
+  color: #fff;
+}
+
+.download:hover {
+  -webkit-animation: pulse 0.2s 2 both;
+  animation: pulse 0.2s 2 both;
+}
+
+.download.loading i {
+  -webkit-animation: loading 2s infinite linear;
+  animation: loading 2s infinite linear;
+}
+
+.download.loading i::after {
+  content: "\f1ce";
+}
+
+.download.success {
+  border-radius: 50%;
+  background: #26ec2d;
+}
+
+.download.success i::after {
+  content: "\f00c";
+  color: transparent;
+  -webkit-animation: change-icon 1s 0.6s linear both;
+  animation: change-icon 1s 0.6s linear both;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes change-icon {
+  0% {
+    color: transparent;
+  }
+
+  100% {
+    color: #fff;
+  }
+}
+
+@keyframes change-icon {
+  0% {
+    color: transparent;
+  }
+
+  100% {
+    color: #fff;
+  }
+}
+
+@-webkit-keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+.rename {
+  display: inline-block;
+  padding: 10px 10px 10px;
+  border: 0;
+  border-radius: 3px;
+  background: #a720ea;
+  text-decoration: none;
+  transition: all 1.2s ease-in-out;
+}
+
+
+.rename i::after {
+  content: "\f040";
+  font-size: 40px;
+  color: #fff;
+}
+
+.rename:hover {
+  -webkit-animation: pulse 0.2s 2 both;
+  animation: pulse 0.2s 2 both;
+}
+
+
+
+
+.submit {
+  display: inline-block;
+  padding: 10px 10px 10px;
+  border: 0;
+  border-radius: 3px;
+  background: #2042ea;
+  text-decoration: none;
+  transition: all 1.2s ease-in-out;
+}
+
+
+.submit i::after {
+  content: "\f058";
+  font-size: 40px;
+  color: #fff;
+}
+
+.submit:hover {
+  -webkit-animation: pulse 0.2s 2 both;
+  animation: pulse 0.2s 2 both;
+}
+
+
+
+.cancel {
+  display: inline-block;
+  padding: 10px 10px 10px;
+  border: 0;
+  border-radius: 3px;
+  background: #ea2020;
+  text-decoration: none;
+  transition: all 1.2s ease-in-out;
+}
+
+
+.cancel i::after {
+  content: "\f057";
+  font-size: 40px;
+  color: #fff;
+}
+
+.cancel:hover {
+  -webkit-animation: pulse 0.2s 2 both;
+  animation: pulse 0.2s 2 both;
+}
+
+
+
+.share {
+	display: inline-block;
+	padding: 10px 10px 10px;
+	border: 0;
+	border-radius: 3px;
+	background: #09db4f;
+	text-decoration: none;
+	transition: all 1.2s ease-in-out;
+  }
+
+
+  .share i::after {
+	content: "\f1e0";
+	font-size: 40px;
+	color: #fff;
+  }
+
+  .share:hover {
+	-webkit-animation: pulse 0.2s 2 both;
+	animation: pulse 0.2s 2 both;
+  }
+
+
+
+/* Upload button */
+
+.c-button {
+  color: #000;
+  font-weight: 700;
+  font-size: 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  padding: 0.5em 1.0em;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  /* position: relative; */
+  z-index: 1;
+}
+
+.c-button--gooey {
+  color: #2606d9;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 4px solid #2606d9;
+  border-radius: 0;
+  /* position: relative; */
+  transition: all 700ms ease;
+}
+
+.c-button--gooey .c-button__blobs {
+  /* background-color: #fff; */
+  height: 100%;
+  filter: url("#goo");
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -3px;
+  right: -1px;
+  z-index: -1;
+}
+
+.c-button--gooey .c-button__blobs div {
+  background-color: #2606d9;
+  width: 34%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  transform: scale(1.4) translateY(125%) translateZ(0);
+  transition: all 700ms ease;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(1) {
+  left: -5%;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(2) {
+  left: 30%;
+  transition-delay: 60ms;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(3) {
+  left: 66%;
+  transition-delay: 25ms;
+}
+
+.c-button--gooey:hover {
+  color: #fff;
+}
+
+.c-button--gooey:hover .c-button__blobs div {
+  transform: scale(1.4) translateY(0) translateZ(0);
+}
+
+
+.inline {
+	display: inline-block;
+}
+
+
+.fa-star {
+    float: right;
+}
+
+.fa-trash {
+    float: left;
+}
