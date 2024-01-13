@@ -1,14 +1,14 @@
 # BUDRIVE
 <!-- ## Create Virtual Environment
-- Download virtual Environment Module
+- Download the virtual Environment Module
 ```
 pip install virtualenv
 ```
-- Locate base directory and use this command to create virtual environment
+- Locate the base directory and use this command to create a virtual environment
 ```
 virtualenv <environment_name>
 ``` -->
-## Run Command to install required Python Module
+## Run Command to install the required Python Module
 ```sh
 pip install -r requirement.txt
 ```
@@ -23,7 +23,3 @@ python manage.py runserver
 
 [Manu Chaitanya](https://github.com/manuchaitanya) (e21cseu0893@bennett.edu.in)
 
-## Purpose:
-
-Course Project at [Bennett University]
-for the course [CSET358 : Cloud Computing]
